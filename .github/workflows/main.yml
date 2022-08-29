@@ -16,5 +16,5 @@ jobs:
             -uses: actions/checkout@v3
             -name: script
         
-        run: "${GITHUB_WORKSPACE}/handout/install-riscv-tools.sh"
-        shell: bash
+             run: "${GITHUB_WORKSPACE}/handout/install-riscv-tools.sh"
+             shell: bash
