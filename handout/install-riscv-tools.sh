@@ -25,7 +25,7 @@ echo "}" >> ~/.bashrc
 echo "cpsc3200" >> ~/.bashrc
 sync
 source ~/.bashrc
-
+echo $GITHUB_PATH
 #extract qemu
 wait
 xz --decompress  qemu-4.2.0.tar.xz
