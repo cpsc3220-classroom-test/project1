@@ -1,8 +1,8 @@
 #!/bin/bash -xe
 
 
-QEMUDIR=$HOME/.local/qemu/
-GCCDIR=$HOME/.local/gnu-riscv/
+QEMUDIR=$HOME/.local/qemu
+GCCDIR=$HOME/.local/gnu-riscv
 mkdir -p $HOME/.local
 
 cd
