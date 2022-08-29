@@ -13,8 +13,10 @@ jobs:
     install-xv6-script:
         runs-on: ubuntu-latest
         steps:
-            -uses: actions/checkout@v3
-            -name: script
+            - uses: actions/checkout@v3
+            - name: script
         
-             run: "${GITHUB_WORKSPACE}/handout/install-riscv-tools.sh"
+             run: |
+                chmod +x ./handout/install-riscv-tools.sh
+             ./handout/install-riscv-tools.sh
              shell: bash
