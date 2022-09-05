@@ -1,0 +1,41 @@
+name: GitHub Classroom Workflow
+
+on: [push]
+
+permissions:
+  checks: write
+  actions: read
+  contents: read
+
+jobs:
+  get-test:
+    name: get-test 
+    runs-on: ubuntu-latest
+    steps: 
+    - uses: actions/checkout@v2
+      with:
+        repository: ${{ secrets.REPO }}
+        token: ${{ secrets.ACCESS_TOKEN }}
+    - uses: actions/upload-artifact@v2
+      with:
+        path: test/
+
+  set-up-xv6:
+    needs: get-test
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    run: |
+       chmod +x ./handout/install-riscv-tools.sh
+       ./handout/install-riscv-tools.sh
+    shell: bash
+ 
+  set-up-python:
+    name: test 
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    - run: pip install -r ../classroom/requirements.txt
