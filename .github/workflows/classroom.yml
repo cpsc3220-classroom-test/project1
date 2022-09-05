@@ -18,7 +18,7 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }}
       - uses: actions/upload-artifact@v2
         with:
-          path: test/
+          path: ${GITHUB_WORKSPACE}/test/
 
   set-up-xv6:
     needs: get-test
@@ -27,8 +27,10 @@ jobs:
     - uses: actions/checkout@v3
     - name: script
       run: |
+        ls ${GITHUB_WORKSPACE}/test
         chmod +x ./handout/install-riscv-tools.sh
         ./handout/install-riscv-tools.sh
+        
       shell: bash
  
   set-up-python:
@@ -38,4 +40,4 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: '3.9'
-      - run: pip install -r ../classroom/requirement.txt
+      - run: pip install -r ${GITHUB_WORKSPACE}/.github/classroom/requirement.txt
