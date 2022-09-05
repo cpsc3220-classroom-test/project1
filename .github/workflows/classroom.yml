@@ -26,10 +26,10 @@ jobs:
     steps: 
       - uses: actions/checkout@v3
       - name: script
-      run: |
-        chmod +x ./handout/install-riscv-tools.sh
-        ./handout/install-riscv-tools.sh
-      shell: bash
+        run: |
+          chmod +x ./handout/install-riscv-tools.sh
+          ./handout/install-riscv-tools.sh
+        shell: bash
       - uses: actions/setup-python@v4
         with:
           python-version: '3.9'
