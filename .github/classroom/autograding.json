@@ -3,7 +3,7 @@
     {
       "name": "Test Functionality",
       "setup": "",
-      "run": "pytest ./test/.test_p1a_git.py::TestP1A_MainFunctionality",
+      "run": "pytest ./test/test_p1a_git.py::TestP1A_MainFunctionality",
       "input": "",
       "output": "",
       "comparison": "included",
@@ -14,7 +14,7 @@
     {
       "name": "test Edge Cases",
       "setup": "",
-      "run": "pytest ./test/.test_p1a_git.py::TestP1A_EdgeCases",
+      "run": "pytest ./test/test_p1a_git.py::TestP1A_EdgeCases",
       "input": "",
       "output": "",
       "comparison": "included",
