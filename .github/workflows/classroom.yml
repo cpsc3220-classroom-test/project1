@@ -35,8 +35,8 @@ jobs:
           python-version: '3.9'
       - run: pip install -r ${GITHUB_WORKSPACE}/.github/classroom/requirement.txt
       - uses: actions/download-artifact@v2
-      - run: cd test
-      - run: ls -la
+      - run: ls -la ./test
+      - run: ls -la ./test/testfiles
       - uses: actions/download-artifact@v2
       - uses: education/autograding@v1 
       #  set-up-xv6:

@@ -1,25 +1,58 @@
 {
   "tests": [
     {
-      "name": "Test Functionality",
+      "name": "Test Functionality for Part1A",
       "setup": "",
       "run": "pytest ./test/test_p1a_git.py::TestP1A_MainFunctionality",
       "input": "",
       "output": "",
       "comparison": "included",
       "timeout": 10,
-      "points": null
+      "points": 40 
     },
 
     {
-      "name": "test Edge Cases",
+      "name": "test Edge Cases for eg., emptyline, unevenlines etc. for Part1A",
       "setup": "",
       "run": "pytest ./test/test_p1a_git.py::TestP1A_EdgeCases",
       "input": "",
       "output": "",
       "comparison": "included",
       "timeout": 10,
-      "points": null
+      "points": 50
+    },
+
+    {
+      "name": "test Error Cases such for eg., line too long etc. for Part1A",
+      "setup": "",
+      "run": "pytest ./test/test_p1a_git.py::TestP1A_ErrorCases",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 40
+    },
+
+    {
+      "name": "Memory leak test for Part1A",
+      "setup": "",
+      "run": "pytest ./test/test_p1a_git.py::TestP1A_MemLeaks",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 40
+    },
+
+    {
+      "name": "Test functionality for Part1B",
+      "setup": "",
+      "run": "pytest ./test/test_p1b_git.py::TestP1",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 40
     }
   ]
 }
