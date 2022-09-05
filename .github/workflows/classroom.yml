@@ -22,14 +22,14 @@ jobs:
 
   set-up-xv6:
     needs: get-test
-    name: set-up-xv6 
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    run: |
-      chmod +x ./handout/install-riscv-tools.sh
-      ./handout/install-riscv-tools.sh
-    shell: bash
+    - uses: actions/checkout@v3
+    - name: script
+      run: |
+        chmod +x ./handout/install-riscv-tools.sh
+        ./handout/install-riscv-tools.sh
+      shell: bash
  
   set-up-python:
     name: set-up-python 
