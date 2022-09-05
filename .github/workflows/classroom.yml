@@ -22,20 +22,20 @@ jobs:
 
   set-up-xv6:
     needs: get-test
-    name: build
+    name: set-up-xv6 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      run: |
-         chmod +x ./handout/install-riscv-tools.sh
-         ./handout/install-riscv-tools.sh
+      - run: |
+           chmod +x ./handout/install-riscv-tools.sh
+           ./handout/install-riscv-tools.sh
       shell: bash
  
   set-up-python:
-    name: test 
+    name: set-up-python 
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-python@v4
         with:
           python-version: '3.9'
-      run: pip install -r ../classroom/requirements.txt
+      - run: pip install -r ../classroom/requirements.txt
