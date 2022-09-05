@@ -27,8 +27,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     run: |
-           chmod +x ./handout/install-riscv-tools.sh
-           ./handout/install-riscv-tools.sh
+      chmod +x ./handout/install-riscv-tools.sh
+      ./handout/install-riscv-tools.sh
     shell: bash
  
   set-up-python:
