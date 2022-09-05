@@ -18,7 +18,7 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }}
       - uses: actions/upload-artifact@v2
         with:
-          path: ${GITHUB_WORKSPACE}/test/
+          path: ${{secrets.repo}}  
 
   set-up-xv6:
     needs: get-test
@@ -37,6 +37,7 @@ jobs:
     name: set-up-python 
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
         with:
           python-version: '3.9'
