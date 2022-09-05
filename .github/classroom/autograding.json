@@ -1,9 +1,20 @@
 {
   "tests": [
     {
-      "name": "test_1",
+      "name": "Test Functionality",
       "setup": "",
-      "run": "./test",
+      "run": "pytest ./test/.test_p1a_git.py::TestP1A_MainFunctionality",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": null
+    },
+
+    {
+      "name": "test Edge Cases",
+      "setup": "",
+      "run": "pytest ./test/.test_p1a_git.py::TestP1A_EdgeCases",
       "input": "",
       "output": "",
       "comparison": "included",
