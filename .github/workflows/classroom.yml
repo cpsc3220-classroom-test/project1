@@ -20,25 +20,26 @@ jobs:
         with:
           name: test
           path: .
+
   set-up-xv6:
-    needs: get-test
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - name: script
       run: |
-        ls ${GITHUB_WORKSPACE}/test
         chmod +x ./handout/install-riscv-tools.sh
         ./handout/install-riscv-tools.sh
-        
       shell: bash
  
   set-up-python:
     name: set-up-python 
+    needs: get-test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
         with:
           python-version: '3.9'
       - run: pip install -r ${GITHUB_WORKSPACE}/.github/classroom/requirement.txt
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@v2
+      - run: ls
