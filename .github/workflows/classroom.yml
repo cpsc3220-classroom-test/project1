@@ -11,15 +11,13 @@ jobs:
   get-test:
     name: get-test 
     runs-on: ubuntu-latest
-    steps: 
+    steps:
+      - uses: actions/checkout@v3 
       - uses: actions/checkout@v3
         with:
           repository: ${{ secrets.REPO }}
           token: ${{ secrets.ACCESS_TOKEN }}
-      - uses: actions/upload-artifact@v2
-        with:
-          path: ${{secrets.repo}}  
-
+      - run: ls          
   set-up-xv6:
     needs: get-test
     runs-on: ubuntu-latest
