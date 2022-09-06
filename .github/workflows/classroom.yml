@@ -25,8 +25,9 @@ jobs:
     name: set-up-test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3 
-      - name: cache-depend
+      - uses: actions/checkout@v3
+
+      - name: cache-depend-check
         id: cache-depend
         uses: actions/cache@v3
         with:
@@ -43,7 +44,6 @@ jobs:
       - name: add to Path
         run: |
           echo "${HOME}/.local/qemu/bin" >> $GITHUB_PATH
-
           echo "${HOME}/.local/gnu-riscv/bin" >> $GITHUB_PATH
           echo "${HOME}/.local/qemu/lib" >> $LD_LIBRARY_PATH
           echo "${HOME}/.local/gnu-riscv/lib" >> $LD_LIBRARY_PATH
@@ -66,11 +66,11 @@ jobs:
 
       - name: test-depend
         run: |
-           ls -la ./test
-           ls -la ~/.local
-           echo $PATH
-           echo $LD_LIBRARY_PATH
-           riscv64-unknown-elf-gcc --version
+          ls -la ./test
+          ls -la ~/.local
+          echo $PATH
+          echo $LD_LIBRARY_PATH
+          riscv64-unknown-elf-gcc --version
       
       - name: do-testing  
         uses: education/autograding@v1 
