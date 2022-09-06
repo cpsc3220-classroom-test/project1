@@ -41,11 +41,11 @@ jobs:
         shell: bash
 
       - name: add to Path
-      - run: echo "${HOME}/.local/qemu/bin" >> $GITHUB_PATH
+        run: echo "${HOME}/.local/qemu/bin" >> $GITHUB_PATH
 
-      - run: echo "${HOME}/.local/gnu-riscv/bin" >> $GITHUB_PATH
-      - run: echo "${HOME}/.local/qemu/lib" >> $LD_LIBRARY_PATH
-      - run: echo "${HOME}/.local/gnu-riscv/lib" >> $LD_LIBRARY_PATH
+        run: echo "${HOME}/.local/gnu-riscv/bin" >> $GITHUB_PATH
+        run: echo "${HOME}/.local/qemu/lib" >> $LD_LIBRARY_PATH
+        run: echo "${HOME}/.local/gnu-riscv/lib" >> $LD_LIBRARY_PATH
       
       - name: install-valgrind
         run: |
@@ -53,17 +53,17 @@ jobs:
           sudo apt-get install valgrind
       
       - name: setup-python
-      - uses: actions/setup-python@v4
+        uses: actions/setup-python@v4
         with:
           python-version: '3.9'
-      - run: pip install -r ${GITHUB_WORKSPACE}/.github/classroom/requirement.txt
-      - uses: actions/download-artifact@v2
-      - run: ls -la ./test
-      - run: ls -la ./test/testfiles
-      - run: ls -la ~/.local
-      - run: echo $PATH
-      - run: riscv64-unknown-elf-gcc --version
-      - uses: education/autograding@v1 
+        run: pip install -r ${GITHUB_WORKSPACE}/.github/classroom/requirement.txt
+        uses: actions/download-artifact@v2
+        run: ls -la ./test
+        run: ls -la ./test/testfiles
+        run: ls -la ~/.local
+        run: echo $PATH
+        run: riscv64-unknown-elf-gcc --version
+        uses: education/autograding@v1 
       #  set-up-xv6:
       #    runs-on: ubuntu-latest
       #    steps:
