@@ -25,7 +25,6 @@ jobs:
     name: set-up-test
     runs-on: ubuntu-latest
     steps:
-      # - name: pull-directory
       - uses: actions/checkout@v3
       - name: cache-depend-check
         id: cache-depend
@@ -37,8 +36,8 @@ jobs:
       - name: check-cache
         if: steps.cache-depend.outputs.cache-hit != 'true'
         run: |
-          chmod +x ${GITHUB_WORKSPACE}/.github/workflows/install-depend.sh
-          ${GITHUB_WORKSPACE}/.github/workflows/install-depend.sh
+          chmod +x ${GITHUB_WORKSPACE}/.github/classroom/install-depend.sh
+          ${GITHUB_WORKSPACE}/.github/classroom/install-depend.sh
         shell: bash
 
       - name: add to Path
