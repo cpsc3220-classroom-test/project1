@@ -25,9 +25,6 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v3
-        run: |
-          sudo apt-get update
-          sudo apt-get install valgrind
 
       - name: cache depend
         id: cache-depend
@@ -49,6 +46,12 @@ jobs:
       - run: echo "${HOME}/.local/gnu-riscv/bin" >> $GITHUB_PATH
       - run: echo "${HOME}/.local/qemu/lib" >> $LD_LIBRARY_PATH
       - run: echo "${HOME}/.local/gnu-riscv/lib" >> $LD_LIBRARY_PATH
+      
+      - name: install-valgrind
+        run: |
+          sudo apt-get update
+          sudo apt-get install valgrind
+      
       - name: setup-python
       - uses: actions/setup-python@v4
         with:
