@@ -25,13 +25,31 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v3
-      - name: script
         run: |
           sudo apt-get update
           sudo apt-get install valgrind
-          chmod +x ./handout/install-riscv-tools.sh
-          ./handout/install-riscv-tools.sh
+
+      - name: cache depend
+        id: cache-depend
+        uses: actions/cache@v3
+        with:
+          path: $HOME/.local
+          key: ${{ runner.os }}-cache-depend
+
+      - name: check cache
+        if: steps.cache-depend.outputs.cache-hit != 'true'
+        run: |
+          chmod +x ./install-depend.sh
+          ./install-depend.sh
         shell: bash
+
+      - name: add to Path
+      - run: echo "${HOME}/.local/qemu/bin" >> $GITHUB_PATH
+
+      - run: echo "${HOME}/.local/gnu-riscv/bin" >> $GITHUB_PATH
+      - run: echo "${HOME}/.local/qemu/lib" >> $LD_LIBRARY_PATH
+      - run: echo "${HOME}/.local/gnu-riscv/lib" >> $LD_LIBRARY_PATH
+      - name: setup-python
       - uses: actions/setup-python@v4
         with:
           python-version: '3.9'
