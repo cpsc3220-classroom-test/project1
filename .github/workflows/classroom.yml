@@ -37,8 +37,8 @@ jobs:
       - name: check-cache
         if: steps.cache-depend.outputs.cache-hit != 'true'
         run: |
-          chmod +x ./.github/workflows/install-depend.sh
-          ./.github/workflows/install-depend.sh
+          chmod +x ${GITHUB_WORKSPACE}/.github/workflows/install-depend.sh
+          ${GITHUB_WORKSPACE}/.github/workflows/install-depend.sh
         shell: bash
 
       - name: add to Path
