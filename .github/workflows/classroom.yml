@@ -68,7 +68,7 @@ jobs:
            echo $LD_LIBRARY_PATH
            riscv64-unknown-elf-gcc --version
       
-      - name:do-testing  
+      - name: do-testing  
         uses: education/autograding@v1 
       #  set-up-xv6:
       #    runs-on: ubuntu-latest
