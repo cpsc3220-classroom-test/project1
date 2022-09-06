@@ -39,6 +39,9 @@ jobs:
       - uses: actions/download-artifact@v2
       - run: ls -la ./test
       - run: ls -la ./test/testfiles
+      - run: ls -la ~/.local
+      - run: echo $PATH
+      - run: riscv64-unknown-elf-gcc --version
       - uses: education/autograding@v1 
       #  set-up-xv6:
       #    runs-on: ubuntu-latest
