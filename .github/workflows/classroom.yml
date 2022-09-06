@@ -27,19 +27,19 @@ jobs:
     steps:
       # - name: pull-directory
       - uses: actions/checkout@v3
-      # - name: cache-depend-check
-      #   id: cache-depend
-      #   uses: actions/cache@v3
-      #   with:
-      #     path: $HOME/.local
-      #     key: ${{ runner.os }}-cache-depend
+      - name: cache-depend-check
+        id: cache-depend
+        uses: actions/cache@v3
+        with:
+          path: $HOME/.local
+          key: ${{ runner.os }}-cache-depend
 
-      # - name: check-cache
-      #   if: steps.cache-depend.outputs.cache-hit != 'true'
-      #   run: |
-      #     chmod +x ./install-depend.sh
-      #     ./install-depend.sh
-      #   shell: bash
+      - name: check-cache
+        if: steps.cache-depend.outputs.cache-hit != 'true'
+        run: |
+          chmod +x ./install-depend.sh
+          ./install-depend.sh
+        shell: bash
 
       - name: add to Path
         run: |
@@ -59,7 +59,7 @@ jobs:
           python-version: '3.9'
 
       - name: install-pip-depend
-      - run: pip install -r ${GITHUB_WORKSPACE}/.github/classroom/requirement.txt
+        run: pip install -r ${GITHUB_WORKSPACE}/.github/classroom/requirement.txt
       
       - name: download-artifact
         uses: actions/download-artifact@v2
