@@ -671,18 +671,3 @@ procdump(void)
     printf("\n");
   }
 }
-
-
-uint64 sys_getprocs()
-{
-	struct proc* p;
-	int i = 0;
-	for(p=proc; p< &proc[NPROC];p++)
-	{
-		if(p->state !=UNUSED)
-		{
-			i++;
-		}
-	}
-return i;
-}
