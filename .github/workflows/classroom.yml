@@ -61,16 +61,15 @@ jobs:
       
       - name: download-artifact
         uses: actions/download-artifact@v2
-      
-      - name: check 
-      - run: ls -la ./test
-      - run: ls -la ./test/testfiles
-      - run: ls -la ~/.local
-      - run: echo $PATH
-      - run: riscv64-unknown-elf-gcc --version
+        run: |
+           ls -la ./test
+           ls -la ~/.local
+           echo $PATH
+           echo $LD_LIBRARY_PATH
+           riscv64-unknown-elf-gcc --version
       
       - name:do-testing  
-      - uses: education/autograding@v1 
+        uses: education/autograding@v1 
       #  set-up-xv6:
       #    runs-on: ubuntu-latest
       #    steps:
