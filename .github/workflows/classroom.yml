@@ -33,10 +33,6 @@ jobs:
         with:
           path: $HOME/.local
           key: ${{ runner.os }}-cache-depend
-      - name: check_ld
-        run: |
-          echo ${$LD_LIBRARY_PATH}
-
       - name: check-cache
         if: steps.cache-depend.outputs.cache-hit != 'true'
         run: |
