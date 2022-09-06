@@ -68,6 +68,8 @@ jobs:
       - run: ls -la ~/.local
       - run: echo $PATH
       - run: riscv64-unknown-elf-gcc --version
+      
+      - name:do-testing  
       - uses: education/autograding@v1 
       #  set-up-xv6:
       #    runs-on: ubuntu-latest
