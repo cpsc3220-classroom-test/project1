@@ -41,12 +41,12 @@ jobs:
           ./install-depend.sh
         shell: bash
 
-      - name: add to Path
-        run: |
-          echo "${HOME}/.local/qemu/bin" >> $GITHUB_PATH
-          echo "${HOME}/.local/gnu-riscv/bin" >> $GITHUB_PATH
-          echo "${HOME}/.local/qemu/lib" >> $LD_LIBRARY_PATH
-          echo "${HOME}/.local/gnu-riscv/lib" >> $LD_LIBRARY_PATH
+      # - name: add to Path
+      #   run: |
+      #     echo "${HOME}/.local/qemu/bin" >> $GITHUB_PATH
+      #     echo "${HOME}/.local/gnu-riscv/bin" >> $GITHUB_PATH
+      #     echo "${HOME}/.local/qemu/lib" >> $LD_LIBRARY_PATH
+      #     echo "${HOME}/.local/gnu-riscv/lib" >> $LD_LIBRARY_PATH
       
       - name: install-valgrind
         run: |
