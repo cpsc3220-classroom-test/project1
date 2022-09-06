@@ -23,8 +23,9 @@ jobs:
   set-up-test:
     name: set-up-test
     runs-on: ubuntu-latest
-    steps: 
-      - uses: actions/checkout@v3
+    steps:
+      - name: checkout 
+        uses: actions/checkout@v3
 
       - name: cache depend
         id: cache-depend
