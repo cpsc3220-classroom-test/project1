@@ -36,8 +36,8 @@ jobs:
       - name: check-cache
         if: steps.cache-depend.outputs.cache-hit != 'true'
         run: |
-          chmod +x ${GITHUB_WORKSPACE}/.github/classroom/install-depend.sh
-          ${GITHUB_WORKSPACE}/.github/classroom/install-depend.sh
+          chmod +x ${GITHUB_WORKSPACE}/.github/classroom/install_depend.sh
+          ${GITHUB_WORKSPACE}/.github/classroom/install_depend.sh
         shell: bash
 
       - name: add to Path
