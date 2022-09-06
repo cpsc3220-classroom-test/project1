@@ -47,7 +47,7 @@
     {
       "name": "Test functionality for Part1B",
       "setup": "",
-      "run": "pytest ./test/test_p1b_git.py::TestP1",
+      "run": "pytest ./test/test_p1b_git.py",
       "input": "",
       "output": "",
       "comparison": "included",
