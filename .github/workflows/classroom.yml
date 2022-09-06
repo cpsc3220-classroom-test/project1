@@ -54,10 +54,10 @@ jobs:
           sudo apt-get install valgrind
       
       - name: setup-python
-        uses: actions/setup-python@v4
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.9'
-        run: pip install -r ${GITHUB_WORKSPACE}/.github/classroom/requirement.txt
+      - run: pip install -r ${GITHUB_WORKSPACE}/.github/classroom/requirement.txt
       
       - name: download-artifact
         uses: actions/download-artifact@v2
